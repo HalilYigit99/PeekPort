@@ -1,0 +1,34 @@
+# Binaries
+bin/
+*.exe
+*.out
+
+# Go build cache
+/vendor/
+
+# Let's Encrypt certificate cache
+/certs/
+/var/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets – never commit
+.env
+*.env
+config.local.yaml
+secrets.yaml
+
+# Test output
+*.test
+*.prof
+coverage.out
+
+# go.sum is committed intentionally (reproducible builds)
