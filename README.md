@@ -82,6 +82,13 @@ export PEEKPORT_API_KEY=GIZLI_ANAHTAR
 
 Ayrıntılar için → [docs/architecture.md](docs/architecture.md)
 
+## Kurulum Rehberleri
+
+| Senaryo | Belge |
+|---------|-------|
+| Doğrudan VDS (Let's Encrypt) | [docs/deployment.md](docs/deployment.md) |
+| NGINX arkasında (reverse proxy) | [docs/nginx.md](docs/nginx.md) |
+
 ## Tarama Modları
 
 | Mod | Port Sayısı | Kullanım Durumu |
@@ -115,4 +122,4 @@ Bu araç yalnızca **yetkili** güvenlik testleri, penetrasyon testleri ve IT al
 
 ## Lisans
 
-MIT
+[MIT](LICENSE)
