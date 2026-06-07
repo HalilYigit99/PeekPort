@@ -68,6 +68,12 @@ func main() {
   peekport-client scan --server ws://localhost:8080 --target 192.168.1.1 --mode full --proto tcp,udp
   peekport-client scan --server wss://scan.example.com --target 10.0.0.1 --output json`,
 		RunE: func(cmd *cobra.Command, args []string) error {
+			if server == "" {
+				return fmt.Errorf("server is required (use --server or set PEEKPORT_SERVER)")
+			}
+			if target == "" {
+				return fmt.Errorf("target is required (use --target)")
+			}
 			return runScan(server, apiKey, target, mode, protocols, timeoutMs, conc, insecure, outputFmt)
 		},
 	}
@@ -81,8 +87,6 @@ func main() {
 	scan.Flags().IntVar(&conc, "concurrency", 500, "Concurrent scanner goroutines on server")
 	scan.Flags().BoolVar(&insecure, "insecure", false, "Skip TLS certificate verification")
 	scan.Flags().StringVar(&outputFmt, "output", "table", "Output format: table, json")
-	scan.MarkFlagRequired("target")   //nolint:errcheck
-	scan.MarkFlagRequired("server")   //nolint:errcheck
 
 	root := &cobra.Command{
 		Use:   "peekport-client",
